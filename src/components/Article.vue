@@ -21,7 +21,7 @@ const authorFormatted = (author: string) => {
 
 <template>
   <a
-    class="grid grid-cols-[1fr] md:grid-cols-[1fr_3fr] gap-5 py-8 border-b-[1px] last:border-b-0 border-b-gray-700 border-b-solid hover:bg-gray-800 transition duration-200 ease"
+    class="grid grid-cols-[1fr] sm:grid-cols-[1fr_3fr] gap-5 py-8 border-b-[1px] last:border-b-0 border-b-gray-700 border-b-solid hover:bg-gray-800 transition duration-200 ease"
     :href="props.article.url"
     target="_blank"
   >
@@ -31,13 +31,12 @@ const authorFormatted = (author: string) => {
     </div>
 
     <div class="mt-3">
-      <div class="flex items-center">
-        <p class="uppercase font-semibold text-blue-400 text-xs">{{ props.article.source.name }}</p>
-        <p class="text-md font-semibold text-gray-400 px-1" v-if="props.article.author">·</p>
-        <p class="text-red-400 font-medium text-sm" v-if="props.article.author">
+      <div class="flex flex-wrap items-center">
+        <p class="uppercase font-semibold text-blue-400 text-xs mr-3">{{ props.article.source.name }}</p>
+        <p class="text-red-400 font-medium text-sm mr-3" v-if="props.article.author">
           {{ authorFormatted(props.article.author) }}
         </p>
-        <p class="text-gray-400 ml-3 text-sm">{{ publishedDateFormatted(props.article.publishedAt) }}</p>
+        <p class="text-gray-400 text-sm">{{ publishedDateFormatted(props.article.publishedAt) }}</p>
       </div>
 
       <p id="article-title" class="font-bold text-2xl">{{ props.article.title }}</p>
